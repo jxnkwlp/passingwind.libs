@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework></TargetFramework>
+		<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+		
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>0.1.0</Version>
+		<Authors>Passingwind</Authors>
+		<Company>Passingwind</Company>
+		<Description>Passingwind.PagedList</Description>
+		<Copyright></Copyright>
+		<PackageProjectUrl>https://github.com/jxnkwlp/passingwind.libs.git</PackageProjectUrl>
+		<PackageIconUrl></PackageIconUrl>
+		<RepositoryUrl>https://github.com/jxnkwlp/passingwind.libs.git</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>page pagedlist</PackageTags>
+
+		<DocumentationFile>bin\Passingwind.PagedList.xml</DocumentationFile>
+	</PropertyGroup>
+
+
+</Project>
