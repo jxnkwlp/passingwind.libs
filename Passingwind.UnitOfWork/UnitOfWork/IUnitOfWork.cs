@@ -12,7 +12,7 @@ namespace Passingwind.UnitOfWork
 
 		int SaveChanges(bool ensureAutoHistory = false);
 
-		Task<int> SaveChangesAsync(bool ensureAutoHistory = false, CancellationToken cancellationToken = default(CancellationToken));
+		Task<int> SaveChangesAsync(bool ensureAutoHistory = false, CancellationToken cancellationToken = default);
 
 		int ExecuteSqlCommand(string sql, params object[] parameters);
 
@@ -33,7 +33,6 @@ namespace Passingwind.UnitOfWork
 	{
 		TContext DbContext { get; }
 
-		Task<int> SaveChangesAsync(bool ensureAutoHistory = false, params IUnitOfWork[] unitOfWorks);
-
+		Task<int> SaveChangesAsync(bool ensureAutoHistory = false, IUnitOfWork[] unitOfWorks = null, CancellationToken cancellationToken = default);
 	}
 }

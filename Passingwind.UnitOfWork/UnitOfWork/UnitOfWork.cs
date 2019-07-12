@@ -51,14 +51,14 @@ namespace Passingwind.UnitOfWork
 			return _context.SaveChanges();
 		}
 
-		public async Task<int> SaveChangesAsync(bool ensureAutoHistory = false, params IUnitOfWork[] unitOfWorks)
+		public async Task<int> SaveChangesAsync(bool ensureAutoHistory = false, IUnitOfWork[] unitOfWorks = null, CancellationToken cancellationToken = default)
 		{
 			using (var ts = new TransactionScope())
 			{
 				var count = 0;
 				foreach (var unitOfWork in unitOfWorks)
 				{
-					count += await unitOfWork.SaveChangesAsync(ensureAutoHistory);
+					count += await unitOfWork.SaveChangesAsync(ensureAutoHistory, cancellationToken);
 				}
 
 				ts.Complete();
@@ -67,7 +67,7 @@ namespace Passingwind.UnitOfWork
 			}
 		}
 
-		public async Task<int> SaveChangesAsync(bool ensureAutoHistory = false, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<int> SaveChangesAsync(bool ensureAutoHistory = false, CancellationToken cancellationToken = default)
 		{
 			if (ensureAutoHistory)
 			{
